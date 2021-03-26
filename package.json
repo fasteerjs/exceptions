@@ -1,0 +1,33 @@
+{
+  "name": "@fasteerjs/exceptions",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:fasteerjs/exceptions",
+  "keywords": [
+    "fastify",
+    "nodejs",
+    "fasteer",
+    "fasteer plugins",
+    "exceptions",
+    "fasteer exceptions"
+  ],
+  "homepage": "https:/github.com/fasteerjs/exceptions#readme",
+  "bugs": {
+    "url": "https://github.com/fasteerjs/exceptions/issues"
+  },
+  "author": {
+    "name": "Froneb s.r.o.",
+    "email": "hello@froneb.dev"
+  },
+  "private": false,
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "compile": "tsc",
+    "prepublish": "yarn format && yarn lint && yarn compile"
+  },
+  "devDependencies": {
+    "@fasteerjs/fasteer": "^3.0.1"
+  }
+}
