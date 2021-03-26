@@ -96,4 +96,5 @@ This is `FasteerError` combined with `Exception`.
 This project is licensed under the MIT license.
 
 <hr>
+
 2021 &copy; Froneb s.r.o &ndash; All rights reserved
