@@ -1,7 +1,7 @@
 import Exception from "../Exception"
 
 class HttpException extends Exception {
-  constructor(message = "INTERNAL", kind = "Internal Server Error") {
+  constructor(message = "Internal Server Error", kind = "INTERNAL") {
     super(message, kind)
     this.name = "HttpException"
   }

@@ -64,6 +64,12 @@ const fasteerExceptions = (options: CreateExceptionHandler) => (
 
 export * from "./exceptions"
 
-export { createExceptionHandler, fasteerExceptions }
+export {
+  createExceptionHandler,
+  fasteerExceptions,
+  CreateExceptionHandler,
+  FasteerError,
+  FasteerExceptionError,
+}
 
 export default fasteerExceptions
