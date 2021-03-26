@@ -80,14 +80,21 @@ const fasteer = hookFastify({
 fasteer.plugin(fasteerExceptions({ errorHandler: (err, req, res) => {} }))
 ```
 
+## Custom Exceptions
+
+You can create custom exceptions by extending the `Exception` class (or other exceptions). In the `Exception` class, there are two functions: `toError()` and `sendError(res: FastifyReply)`:
+
+- `toError` creates an object which will be sent as the response.
+- The `sendError` function by default sends the return value of the `toError` function. You can change the logic if you need `FastifyReply`.
+
 ## TypeScript Types
 
-## `FasteerError (extends FastifyError)`
+### `FasteerError extends FastifyError`
 
 `FasteerError` is `FastifyError` with added `isException()` function.
 Additionally, there is a `FasteerExceptionError`, which also has the the properties of `Exception`.
 
-## `FasteerExceptionError`
+### `FasteerExceptionError`
 
 This is `FasteerError` combined with `Exception`.
 
