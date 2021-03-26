@@ -1,7 +1,10 @@
 import HttpException from "./HttpException"
 
-export default class ValidationException extends HttpException {
+class ValidationException extends HttpException {
   constructor(message = "Validation Error") {
     super(message, "VALIDATION")
   }
 }
+
+export { ValidationException }
+export default ValidationException

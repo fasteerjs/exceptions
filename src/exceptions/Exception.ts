@@ -1,6 +1,6 @@
 import { FastifyReply } from "fastify"
 
-export default class Exception extends Error {
+class Exception extends Error {
   constructor(
     public message = "Internal Server Error",
     public kind = "INTERNAL"
@@ -23,3 +23,6 @@ export default class Exception extends Error {
     return res.send(this.toError())
   }
 }
+
+export { Exception }
+export default Exception

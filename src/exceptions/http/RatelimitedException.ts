@@ -1,7 +1,10 @@
 import ForbiddenException from "./ForbiddenException"
 
-export default class RatelimitedException extends ForbiddenException {
+class RatelimitedException extends ForbiddenException {
   constructor(message = "Rate Limited") {
     super(message)
   }
 }
+
+export { RatelimitedException }
+export default RatelimitedException
