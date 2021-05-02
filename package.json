@@ -16,10 +16,7 @@
   "bugs": {
     "url": "https://github.com/fasteerjs/exceptions/issues"
   },
-  "author": {
-    "name": "Froneb s.r.o.",
-    "email": "hello@froneb.dev"
-  },
+  "author": "Mia (Filip Vottus) <vottus@vott.us>",
   "private": false,
   "scripts": {
     "format": "prettier --write .",

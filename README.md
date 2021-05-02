@@ -104,4 +104,4 @@ This project is licensed under the MIT license.
 
 <hr>
 
-2021 &copy; Froneb s.r.o &ndash; All rights reserved
+2021 &copy; Mia (Filip Vottus) &ndash; All rights reserved
