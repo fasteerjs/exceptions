@@ -5,7 +5,7 @@ import {
   FastifyReply,
   FastifyError,
 } from "fastify"
-import { Exception } from "./exceptions"
+import { Exception, NotFoundException } from "./exceptions"
 
 interface CreateExceptionHandler {
   /**
@@ -42,25 +42,29 @@ type FasteerExceptionError = FasteerError & Exception
  * @param {CreateExceptionHandler} options Options
  * @returns
  */
-const createExceptionHandler = ({
-  errorHandler,
-}: CreateExceptionHandler): FastifyInstance["errorHandler"] => (
-  err: any,
-  req,
-  res
-) => {
-  const isException = () => err.sendError && typeof err.sendError === "function"
+const createExceptionHandler =
+  ({ errorHandler }: CreateExceptionHandler): FastifyInstance["errorHandler"] =>
+  (err: any, req, res) => {
+    const isException = () =>
+      err.sendError && typeof err.sendError === "function"
 
-  err.isException = isException
+    err.isException = isException
 
-  if (isException()) err.sendError(res)
+    if (isException()) err.sendError(res)
 
-  return errorHandler?.(err, req, res)
-}
+    return errorHandler?.(err, req, res)
+  }
 
-const fasteerExceptions = (options: CreateExceptionHandler) => (
-  fasteer: Fasteer.Fasteer
-) => fasteer.fastify.setErrorHandler(createExceptionHandler(options))
+const notFoundHandler: Parameters<FastifyInstance["setNotFoundHandler"]>[0] =
+  () => {
+    throw new NotFoundException()
+  }
+
+const fasteerExceptions =
+  (options: CreateExceptionHandler) => (fasteer: Fasteer.Fasteer) => {
+    fasteer.fastify.setNotFoundHandler(notFoundHandler)
+    fasteer.fastify.setErrorHandler(createExceptionHandler(options))
+  }
 
 export * from "./exceptions"
 
@@ -70,6 +74,7 @@ export {
   CreateExceptionHandler,
   FasteerError,
   FasteerExceptionError,
+  notFoundHandler,
 }
 
 export default fasteerExceptions

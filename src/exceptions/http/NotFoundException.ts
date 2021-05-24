@@ -1,6 +1,6 @@
-import UserInputError from "./UserInputException"
+import UserInputException from "./UserInputException"
 
-class NotFoundException extends UserInputError {
+class NotFoundException extends UserInputException {
   constructor(message = "Not Found") {
     super(message)
   }

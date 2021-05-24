@@ -1,11 +1,11 @@
 import HttpException from "./HttpException"
 
-class UserInputError extends HttpException {
+class UserInputException extends HttpException {
   constructor(message = "Bad Request") {
     super(message, "USER_INPUT")
     this.name = "UserInputError"
   }
 }
 
-export { UserInputError }
-export default UserInputError
+export { UserInputException }
+export default UserInputException
