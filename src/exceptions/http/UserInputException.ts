@@ -7,5 +7,10 @@ class UserInputException extends HttpException {
   }
 }
 
-export { UserInputException }
+/**
+ * @deprecated Use UserInputException
+ */
+const UserInputError = UserInputException
+
+export { UserInputException, UserInputError }
 export default UserInputException
