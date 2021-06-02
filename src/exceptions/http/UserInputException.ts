@@ -1,9 +1,9 @@
 import HttpException from "./HttpException"
 
 class UserInputException extends HttpException {
-  constructor(message = "Bad Request") {
-    super(message, "USER_INPUT")
-    this.name = "UserInputError"
+  constructor(message = "Bad Request", code = 400) {
+    super(message, "USER_INPUT", code)
+    this.name = "UserInputException"
   }
 }
 

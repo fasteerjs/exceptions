@@ -3,9 +3,10 @@ import { FastifyReply } from "fastify"
 class Exception extends Error {
   constructor(
     public message = "Internal Server Error",
-    public kind = "INTERNAL"
+    public kind = "INTERNAL",
+    public code = 500
   ) {
-    super(`${kind}: ${message}`)
+    super(`${kind} (${code}): ${message}`)
     this.name = "Exception"
   }
 
@@ -20,6 +21,7 @@ class Exception extends Error {
   }
 
   sendError(res: FastifyReply) {
+    res.code(this.code)
     return res.send(this.toError())
   }
 }
