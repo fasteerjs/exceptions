@@ -1,8 +1,8 @@
 import HttpException from "./HttpException"
 
 class ForbiddenException extends HttpException {
-  constructor(message = "Forbidden") {
-    super(message, "FORBIDDEN")
+  constructor(message = "Forbidden", code = 403) {
+    super(message, "FORBIDDEN", code)
     this.name = "ForbiddenException"
   }
 }

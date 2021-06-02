@@ -1,8 +1,8 @@
 import HttpException from "./HttpException"
 
 class ValidationException extends HttpException {
-  constructor(message = "Validation Error") {
-    super(message, "VALIDATION")
+  constructor(message = "Validation Error", code = 400) {
+    super(message, "VALIDATION", code)
   }
 }
 

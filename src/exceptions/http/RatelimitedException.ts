@@ -1,8 +1,8 @@
 import ForbiddenException from "./ForbiddenException"
 
 class RatelimitedException extends ForbiddenException {
-  constructor(message = "Rate Limited") {
-    super(message)
+  constructor(message = "Rate Limited", code = 419) {
+    super(message, code)
   }
 }
 
